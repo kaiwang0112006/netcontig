@@ -31,4 +31,4 @@ required arguments:
   --end END      end nodes file
 
 
-python contigpath.py  --input=/public/share/hldu/R498_Final_Final_Ref/R498_Analysis/R498_Pacbio_Self/Graph/Start_End.txt --start=start.txt --end=end.txt
+$ python contigpath.py  --input=/public/share/hldu/R498_Final_Final_Ref/R498_Analysis/R498_Pacbio_Self/Graph/Start_End.txt --start=start.txt --end=end.txt
