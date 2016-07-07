@@ -59,7 +59,11 @@ class CONTIGGRAPH(object):
         self.allspath = {}
         for i, s in enumerate(startlist):
             for j,e in enumerate(endlist):
-                 self.allspath[(s,e)] = nx.shortest_path(self.G,source=s,target=e)
+                try:
+                    self.allspath[(s,e)] = nx.shortest_path(self.G,source=s,target=e)
+                except:
+                    print "Shorest path error for:",(s,e)
+                    print "But continue..."
         
     def formateOutput_list(self, output):
         '''
