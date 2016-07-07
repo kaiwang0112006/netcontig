@@ -5,7 +5,7 @@ Build a net of contig and find the shortest path. Please see the examples input 
 
 script path on server
 ---------
-/public/scripts/kw/netcontig/contigpath.py
+/public/scripts/kw/netcontig/
 
 Usage
 ---------
