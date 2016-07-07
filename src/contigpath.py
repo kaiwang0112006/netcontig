@@ -52,7 +52,7 @@ class CONTIGGRAPH(object):
         
     def shortestpath(self,startlist,endlist):
         '''
-        For each start and end pair in the list, calculate all shortest paths and formate dict to store them.
+        For each start and end pair in the list, calculate shortest paths and formate dict to store them.
         i,j are list index and s,e are ids.
         '''
         
