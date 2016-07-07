@@ -24,7 +24,7 @@ Usage
 	
 	required arguments:
 	
-	  --input INPUT  input file to insert into DB,required
+	  --input INPUT  input file to insert into NET
 	
 	  --start START  start nodes file
 	

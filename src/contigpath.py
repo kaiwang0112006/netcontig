@@ -10,7 +10,7 @@ import csv
 def getOptions():
     parser = argparse.ArgumentParser(description='python *.py [option]"')
     requiredgroup = parser.add_argument_group('required arguments')
-    requiredgroup.add_argument('--input', dest='input', help='input file to insert into DB,required', default='', required=True)
+    requiredgroup.add_argument('--input', dest='input', help='input file to insert into NET', default='', required=True)
     requiredgroup.add_argument('--start', dest='start', help='start nodes file', default='', required=True)
     requiredgroup.add_argument('--end', dest='end', help='end nodes file', default='', required=True)
     parser.add_argument('--out',dest='output',help='output file', default='output.out')
