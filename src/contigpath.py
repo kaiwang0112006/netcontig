@@ -48,11 +48,23 @@ class CONTIGGRAPH(object):
         for i, s in enumerate(startlist):
             for j,e in enumerate(endlist):
                  self.allspath[(s,e)] = nx.all_shortest_paths(self.G,source=s,target=e)
+                 
         
-    def formateOutput(self, output):
+    def shortestpath(self,startlist,endlist):
+        '''
+        For each start and end pair in the list, calculate all shortest paths and formate dict to store them.
+        i,j are list index and s,e are ids.
+        '''
+        
+        self.allspath = {}
+        for i, s in enumerate(startlist):
+            for j,e in enumerate(endlist):
+                 self.allspath[(s,e)] = nx.shortest_path(self.G,source=s,target=e)
+        
+    def formateOutput_list(self, output):
         '''
         With the dict that have id pairs and their shortest paths, an output will be generated.
-        eachline as a csv format:
+        eachline as a csv format and return allshortest paths:
         startid,endid,path
         
         path is formate as id1|id2|....|idn
@@ -65,6 +77,25 @@ class CONTIGGRAPH(object):
                 for p in self.allspath[pair]:
                     pstr = '|'.join(p)
                     fout.write("%s,%s,%s\n" % (s,t,pstr))
+            except:
+                fout.write("%s,%s,nopath\n" % (s,t))
+                
+    def formateOutput_str(self, output):
+        '''
+        With the dict that have id pairs and their shortest paths, an output will be generated.
+        eachline as a csv format and return shortest paths:
+        startid,endid,path
+        
+        path is formate as id1|id2|....|idn
+        '''  
+        fout = open(output,'w')
+        for pair in self.allspath:
+            s = pair[0]
+            t = pair[1]
+            try:
+                path = self.allspath[pair]
+                pstr = '|'.join(path)
+                fout.write("%s,%s,%s\n" % (s,t,pstr))
             except:
                 fout.write("%s,%s,nopath\n" % (s,t))
                 
@@ -102,9 +133,9 @@ def main():
     contiggraph.buildGraph(options.input)
     print "complete graph"
     print "cal short path..."
-    contiggraph.allshortpath(startlist, endlist)
+    contiggraph.shortestpath(startlist, endlist)
     print "Formating output...."
-    contiggraph.formateOutput(options.output)
+    contiggraph.formateOutput_str(options.output)
 
 
 
