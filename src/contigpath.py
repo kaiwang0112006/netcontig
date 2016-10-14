@@ -24,7 +24,7 @@ class CONTIGGRAPH(object):
         
     def buildGraph(self, input):
         '''
-        Fetch all the source and tartget id from input file to build a net
+        Fetch all the source and target id from input file to build a net
         '''
         with open(input) as fin:
             for eachline in fin:
